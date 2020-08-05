@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
  
-public class swea_1238 {
+public class swea_1238_bfs_ver1 {
  
     static boolean[] num[];
     static int N;

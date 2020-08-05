@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
  
-public class swea_1239_bfs_ver2 {
+public class swea_1238_bfs_ver2 {
 	
 	static int[][] map;
 	static int ans;		// 가장 늦게 연락받는 애( 여럿이라면 그중 번호가 큰 애)
@@ -41,7 +41,7 @@ public class swea_1239_bfs_ver2 {
     		
     		
     		// BFS ver1 : 탐색하면서 방문하는 각 정점마다 거리를 같이 기록해놓기
-    		Queue<Student> queue = new LinkedList<swea_1239_bfs_ver2.Student>();
+    		Queue<Student> queue = new LinkedList<swea_1238_bfs_ver2.Student>();
     		queue.add(new Student(start,0));
     		
     		ArrayList<Student> candidate = new ArrayList<>();
