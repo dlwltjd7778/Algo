@@ -60,7 +60,7 @@ public class bj_7576_bfs_ver1 {
 		while(!q.isEmpty()) {
 			
 			int size = q.size();
-			maxDay++;
+			
 			
 			for(int s=0;s<size;s++) {
 				
@@ -83,7 +83,7 @@ public class bj_7576_bfs_ver1 {
 				}	// »ó,ÇÏ,ÁÂ,¿ì Å½»ö ³¡
 				
 			} // size ¼øÈ¸ ³¡
-			
+			maxDay++;
 			
 		} // bfs end
 		
