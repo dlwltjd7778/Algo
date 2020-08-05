@@ -1,9 +1,12 @@
 package BaekJoon;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class bj_7576 {
 
@@ -15,23 +18,26 @@ public class bj_7576 {
 	static Queue<Point> q = new LinkedList<>();
 	static ArrayList<Point> ansPointList = new ArrayList<>();
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException  {
 		
-		Scanner sc = new Scanner(System.in);
-		int M = sc.nextInt();
-		int N = sc.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
+		
+		int M = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken());
+		
 		day = 0;
 
 		int maxDay =0;
 		
 		tomato = new int[N][M];
 		visit = new boolean[N][M];
-		
 		for(int i=0;i<N;i++) {
+			st = new StringTokenizer(br.readLine()," ");
 			for(int j=0;j<M;j++) {
-				tomato[i][j] = sc.nextInt();
+				tomato[i][j] = Integer.parseInt(st.nextToken());
 				if(tomato[i][j]==1) {
-					q.add(new Point(i, j, day));		// 이미 익은 토마토를 큐에 저장
+					q.add(new Point(i, j, day));				// 이미 익은 토마토를 큐에 저장
 					ansPointList.add(new Point(i, j, day));		// 이미 익은 토마토를 정답 후보에 저장
 				}
 				
@@ -48,12 +54,12 @@ public class bj_7576 {
 			}
 		}
 		
-		if(allGrown) {
+		if(allGrown) {						// 안익은 토마토가 없을 경우 0 을 출력하고 return
 			System.out.println(maxDay); 
 			return;
 		}
 		
-		
+		// bfs 시작
 		while(!q.isEmpty()) {
 			
 			Point now = q.poll();
@@ -74,30 +80,28 @@ public class bj_7576 {
 					ansPointList.add(new Point(ni, nj, now.day + 1));
 				}
 				
-			}	// 상,하,좌,우 탐색
+			}	// 상,하,좌,우 탐색 끝
 			
-		} // while end
+		} // bfs end
 		
-		boolean chk = true;			// 안익은 토마토가 있는지 확인
+		boolean chk = true;			// 안익은 토마토가 있는지 확인, 있으면 -1 return
 		for(int i=0;i<N;i++) {
 			for(int j=0;j<M;j++) {
 				if(tomato[i][j]==0) {
 					chk = false;
 					maxDay = -1;
-					break;
+					System.out.println(maxDay);
+					return;
 				}
-				
 			}
-			if(!chk) break;
 		}
 		
-		if(chk) {
-			for(int i=0;i<ansPointList.size();i++) {
-				int nowDay = ansPointList.get(i).day;
-				if(nowDay>maxDay) maxDay = nowDay;
-			}
-		} 
-		
+		// 위의 경우가 전부 아닐때
+		for (int i = 0; i < ansPointList.size(); i++) {
+			int nowDay = ansPointList.get(i).day;
+			if (nowDay > maxDay)
+				maxDay = nowDay;
+		}
 		System.out.println(maxDay);
 		
 		
