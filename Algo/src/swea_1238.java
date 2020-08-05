@@ -2,6 +2,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -71,10 +72,12 @@ public class swea_1238 {
              
         } // while문 end
          
-        while(!ansCandidate.isEmpty()) {
-            int tmp = ansCandidate.poll();
-            if(tmp>max) max = tmp;
-        }
+        max = Collections.max(ansCandidate);	// collection의 최댓값을 찾아주는 메소드 존재함
+        
+//        while(!ansCandidate.isEmpty()) {
+//            int tmp = ansCandidate.poll();
+//            if(tmp>max) max = tmp;
+//        }
          
         return max;
  
