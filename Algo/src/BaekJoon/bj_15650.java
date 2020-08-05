@@ -29,27 +29,24 @@ public class bj_15650 {
 		numbers = new int[M];
 		isSelected = new boolean[N+1];
 		
-		comb(0,0);
+		comb(1,0);
 	}
 	
 	static void comb(int num, int count) {
 		
 		if(count==M) {
-			for(int i=0;i<N+1;i++) {
-				if(isSelected[i]) System.out.print((i)+ " ");
+			for(int n : numbers) {
+				System.out.print(n + " ");
 			}
 			System.out.println();
 			return;
 		}
 			
 			
-		for(int i=num;i<N;i++) {
+		for(int i=num;i<=N;i++) {
 			
-			isSelected[i+1] = true;
-			count++;
-			comb(i+1,count);
-			isSelected[i+1] = false;
-			count--;
+			numbers[count] = i;
+			comb(i+1,count+1);
 		}
 		
 		
