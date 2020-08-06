@@ -11,7 +11,7 @@ public class bj_2961_도영이의맛있는음식 {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		//ss
+		//ssss
 		N = sc.nextInt();
 		list = new Ingredients[N];
 		select = new boolean[N];
