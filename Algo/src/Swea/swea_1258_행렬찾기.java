@@ -16,9 +16,6 @@ public class swea_1258_행렬찾기 {
 	static boolean[][] visit;			// 방문확인 배열
 	static ArrayList<SubMatrix> list;	// 정답배열 리스트
 	
-	static int[] di = {0,1};	// 오른쪽, 아래
-	static int[] dj = {1,0};
-	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		int TC = Integer.parseInt(br.readLine());
