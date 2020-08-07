@@ -51,9 +51,10 @@ public class bj_17135_캐슬디펜스 {
 			map[N+1][ap[1]] = -1;	
 			map[N+1][ap[2]] = -1;		// 궁수 위치 표시
 			
+			int count = 0;
 			for(int d=1;d<=D;d++) {		// D가 1일때부터 가까운 공격위치 찾기 위해서
 				AttackDisList.clear();	// 초기화
-				selectDistance(d);		// 공격 거리 조합 뽑기	> D=1인 경우 예외임 앞으로만 쏠수있음
+				
 				
 				for(Integer[] ad : AttackDisList) {
 					
@@ -82,15 +83,19 @@ public class bj_17135_캐슬디펜스 {
 			comb(cnt+1,i+1);
 		}
 	} // comb end
+
 	
-	// 공격 거리 i와j의 비율을 뽑는 함수
-	static void selectDistance(int d) {
-		for(int i=1;i<=d;i++) {
-			m[0] = i;
-			m[1] = d-i;
-			AttackDisList.add(m);
+	static int game(int i, int j) {	// 궁수 초기 위치 받음
+		
+		
+		for(int d=1;d<=D;d++) {
+			if(d==1) {
+			}
+			
+			
 		}
 		
+		return 0;
 	}
 
 }
