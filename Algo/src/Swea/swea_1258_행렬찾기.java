@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class swea_1258_행렬찾기 {
@@ -16,7 +15,6 @@ public class swea_1258_행렬찾기 {
 	static int[][] container;			// 컨테이너 배열
 	static boolean[][] visit;			// 방문확인 배열
 	static ArrayList<SubMatrix> list;	// 정답배열 리스트
-	static Queue<Integer[]> queue;		// 좌표 bfs위한 큐
 	
 	static int[] di = {0,1};	// 오른쪽, 아래
 	static int[] dj = {1,0};
