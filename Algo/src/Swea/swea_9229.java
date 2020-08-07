@@ -3,12 +3,12 @@ import java.util.Scanner;
 
 public class swea_9229 {
 
-	static int N;			// °úÀÚºÀÁö °³¼ö
-	static int M;			// ÃÖ´ë ¹«°Ô Á¦ÇÑ
+	static int N;			// ê³¼ìë´‰ì§€ ê°œìˆ˜
+	static int M;			// ìµœëŒ€ ë¬´ê²Œ ì œí•œ
 	static int R = 2;
-	static int[] snack;		// °úÀÚ
-	static int[] choice;	// °úÀÚ¼±ÅÃ
-	static int max;			// ÇöÀç °úÀÚ ÃÖ´ë°ª
+	static int[] snack;		// ê³¼ì
+	static int[] choice;	// ê³¼ìì„ íƒ
+	static int max;			// í˜„ì¬ ê³¼ì ìµœëŒ€ê°’
 	
 	public static void main(String[] args) {
 		
@@ -44,7 +44,7 @@ public class swea_9229 {
 		if(cnt==R) {
 			int sum = choice[0] + choice[1];
 			if(sum<=M && sum>max) max = sum;
-			return max; // ¼±ÅÃÇÑ °úÀÚºÀÁö ÇÕ return
+			return max; // ì„ íƒí•œ ê³¼ìë´‰ì§€ í•© return
 		}
 		
 		for(int i=idx;i<N;i++) {

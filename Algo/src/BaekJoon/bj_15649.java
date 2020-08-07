@@ -2,9 +2,9 @@ package BaekJoon;
 
 import java.util.Scanner;
 
-// n�� m(1) >> ���� �ְ� �ڱ� �ڽ� �Ȼ̱� : ����
+// n과 m(1) >> 순서 있고 자기 자신 안뽑기 : 순열
 /*
-�Է� : 4 2
+입력 : 4 2
 1 2 
 1 3 
 1 4 

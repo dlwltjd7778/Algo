@@ -8,14 +8,14 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-// n°úm 5
+// nê³¼m 5
 
-public class bj_15654_n°úm_5 {
+public class bj_15654_nê³¼m_5 {
 
 	static int N,M;
-	static int[] input;		// µé¾î¿À´Â ¼ıÀÚ¹è¿­
-	static boolean[] select; 	// ¼±ÅÃ ¿©ºÎ
-	static int[] ans;		// »ÌÀº ¹è¿­
+	static int[] input;		// ë“¤ì–´ì˜¤ëŠ” ìˆ«ìë°°ì—´
+	static boolean[] select; 	// ì„ íƒ ì—¬ë¶€
+	static int[] ans;		// ë½‘ì€ ë°°ì—´
 	static BufferedWriter bw;
 	
 	public static void main(String[] args) throws IOException {
@@ -55,7 +55,7 @@ public class bj_15654_n°úm_5 {
 		
 		for(int i=0;i<N;i++) {
 			
-			if(select[i]) continue;	// ÀÚ±â ÀÚ½ÅÀ» ¼±ÅÃ Çß´ÂÁö ¾ÈÇß´ÂÁö ÆÇº° °¡´É
+			if(select[i]) continue;	// ìê¸° ìì‹ ì„ ì„ íƒ í–ˆëŠ”ì§€ ì•ˆí–ˆëŠ”ì§€ íŒë³„ ê°€ëŠ¥
 			
 			ans[cnt] = input[i];
 			select[i] = true;

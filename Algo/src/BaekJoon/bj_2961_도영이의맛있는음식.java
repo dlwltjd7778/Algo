@@ -2,12 +2,12 @@ package BaekJoon;
 
 import java.util.Scanner;
 
-public class bj_2961_µµ¿µÀÌÀÇ¸ÀÀÖ´ÂÀ½½Ä {
+public class bj_2961_ë„ì˜ì´ì˜ë§›ìˆëŠ”ìŒì‹ {
 
-	static int N;								// Àç·á °³¼ö
-	static Ingredients[] list;					// Àç·á ¼ººĞ ´ãÀ» ¸®½ºÆ®
-	static boolean[] select;					// Àç·á ¼±ÅÃÇß´ÂÁö È®ÀÎÇÏ±â
-	static int min = Integer.MAX_VALUE;			// s°ö°ú bÇÕÀÇ Â÷ÀÌÀÇ ÃÖ¼Ò°ª
+	static int N;								// ì¬ë£Œ ê°œìˆ˜
+	static Ingredients[] list;					// ì¬ë£Œ ì„±ë¶„ ë‹´ì„ ë¦¬ìŠ¤íŠ¸
+	static boolean[] select;					// ì¬ë£Œ ì„ íƒí–ˆëŠ”ì§€ í™•ì¸í•˜ê¸°
+	static int min = Integer.MAX_VALUE;			// sê³±ê³¼ bí•©ì˜ ì°¨ì´ì˜ ìµœì†Œê°’
 	
 	
 	public static void main(String[] args) {
@@ -17,9 +17,9 @@ public class bj_2961_µµ¿µÀÌÀÇ¸ÀÀÖ´ÂÀ½½Ä {
 		list = new Ingredients[N];
 		select = new boolean[N];
 		
-		for(int i=0;i<N;i++) { // S, B¸¦ Â÷·Ê´ë·Î ¹Ş¾Æ¼­ Àç·á ¸®½ºÆ®¿¡ Ãß°¡
+		for(int i=0;i<N;i++) { // S, Bë¥¼ ì°¨ë¡€ëŒ€ë¡œ ë°›ì•„ì„œ ì¬ë£Œ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
 			list[i] = new Ingredients(sc.nextInt(), sc.nextInt()); 
-		} // ÀÔ·Â end
+		} // ì…ë ¥ end
 		
 		
 		
@@ -31,7 +31,7 @@ public class bj_2961_µµ¿µÀÌÀÇ¸ÀÀÖ´ÂÀ½½Ä {
 	static void subset(int idx) {
 		
 		if(idx==list.length) {
-			// °øÁıÇÕ Ã³¸®
+			// ê³µì§‘í•© ì²˜ë¦¬
 			boolean isReturn = true;
 			for(int i=0;i<select.length;i++) {
 				if(select[i]) {
@@ -40,28 +40,28 @@ public class bj_2961_µµ¿µÀÌÀÇ¸ÀÀÖ´ÂÀ½½Ä {
 			}
 			if(isReturn) return;
 			
-			int sMul = 1; // SÀÇ Multiply
-			int bAdd = 0; // BÀÇ Add
+			int sMul = 1; // Sì˜ Multiply
+			int bAdd = 0; // Bì˜ Add
 			for(int i=0;i<select.length;i++) {
 				if(select[i]) {
-					sMul *= list[i].S;	// ½Å¸À °öÇØÁÖ±â
-					bAdd += list[i].B;	// ¾´¸À ´õÇØÁÖ±â
+					sMul *= list[i].S;	// ì‹ ë§› ê³±í•´ì£¼ê¸°
+					bAdd += list[i].B;	// ì“´ë§› ë”í•´ì£¼ê¸°
 				}
 			}
-			if(Math.abs(sMul-bAdd)<min) 	// ½Å¸À°ú ¾´¸ÀÀÇ Â÷ÀÌ°¡ ÃÖ¼Ú°ªº¸´Ù ÀÛÀ¸¸é
-				min = Math.abs(sMul-bAdd);	// °»½Å
+			if(Math.abs(sMul-bAdd)<min) 	// ì‹ ë§›ê³¼ ì“´ë§›ì˜ ì°¨ì´ê°€ ìµœì†Ÿê°’ë³´ë‹¤ ì‘ìœ¼ë©´
+				min = Math.abs(sMul-bAdd);	// ê°±ì‹ 
 			return;
 		}
 		
 		select[idx] = true;
-		subset(idx+1); // ÀÚ±â ´ÙÀ½ ÀÎµ¦½º È£Ãâ
-		select[idx] = false; // ¼±ÅÃ ¾ÈÇÏ´Â °æ¿ì
+		subset(idx+1); // ìê¸° ë‹¤ìŒ ì¸ë±ìŠ¤ í˜¸ì¶œ
+		select[idx] = false; // ì„ íƒ ì•ˆí•˜ëŠ” ê²½ìš°
 		subset(idx+1);
 	}
 	
-	// Àç·á class 
+	// ì¬ë£Œ class 
 	static class Ingredients{
-		int S,B;	// ½Å¸À, ¾´¸À
+		int S,B;	// ì‹ ë§›, ì“´ë§›
 
 		public Ingredients(int S, int B) {
 			super();
@@ -74,5 +74,5 @@ public class bj_2961_µµ¿µÀÌÀÇ¸ÀÀÖ´ÂÀ½½Ä {
 			return "Ingredients [S=" + S + ", B=" + B + "]";
 		}
 		
-	} // Àç·á class end
+	} // ì¬ë£Œ class end
 } // class end

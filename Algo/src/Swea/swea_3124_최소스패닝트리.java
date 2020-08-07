@@ -35,7 +35,7 @@ class UnionFind{
 	}
 } // unionFind end
 
-// °£¼± Á¤º¸ ÀúÀåÇÏ´Â Å¬·¡½º
+// ê°„ì„  ì •ë³´ ì €ì¥í•˜ëŠ” í´ë˜ìŠ¤
 class InfoE implements Comparable<InfoE>{
 	int start,end,weightVal;
 	
@@ -47,12 +47,12 @@ class InfoE implements Comparable<InfoE>{
 	@Override
 	public int compareTo(InfoE o) {
 		// return this.weightVal - o.weightVal;
-		return Integer.compare(this.weightVal, o.weightVal);	// À½¼ö ¾ç¼ö ºñ±³ ¹®Á¦ ÇØ°á
+		return Integer.compare(this.weightVal, o.weightVal);	// ìŒìˆ˜ ì–‘ìˆ˜ ë¹„êµ ë¬¸ì œ í•´ê²°
 	}
 	
-} // °£¼±Á¤º¸ class end
+} // ê°„ì„ ì •ë³´ class end
 
-public class swea_3124_ÃÖ¼Ò½ºÆĞ´×Æ®¸® {
+public class swea_3124_ìµœì†ŒìŠ¤íŒ¨ë‹íŠ¸ë¦¬ {
 	
 	// main start
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -63,34 +63,34 @@ public class swea_3124_ÃÖ¼Ò½ºÆĞ´×Æ®¸® {
 		for(int tc=1;tc<=TC;tc++) {
 			st = new StringTokenizer(br.readLine());
 			
-			int V = Integer.parseInt(st.nextToken());		// Á¤Á¡ °³¼ö
-			int E = Integer.parseInt(st.nextToken());		// °£¼± °³¼ö
-			InfoE[] infoE = new InfoE[E];					// °£¼± Á¤º¸ ÀúÀåÇÏ´Â ¹è¿­
+			int V = Integer.parseInt(st.nextToken());		// ì •ì  ê°œìˆ˜
+			int E = Integer.parseInt(st.nextToken());		// ê°„ì„  ê°œìˆ˜
+			InfoE[] infoE = new InfoE[E];					// ê°„ì„  ì •ë³´ ì €ì¥í•˜ëŠ” ë°°ì—´
 			
 			for(int e=0;e<E;e++) {
 				st = new StringTokenizer(br.readLine());
-				int start = Integer.parseInt(st.nextToken())-1;		// ½ÃÀÛÁ¤Á¡
-				int end = Integer.parseInt(st.nextToken())-1;			// ³¡Á¤Á¡
-				int weightVal = Integer.parseInt(st.nextToken()); 	// °¡ÁßÄ¡
+				int start = Integer.parseInt(st.nextToken())-1;		// ì‹œì‘ì •ì 
+				int end = Integer.parseInt(st.nextToken())-1;			// ëì •ì 
+				int weightVal = Integer.parseInt(st.nextToken()); 	// ê°€ì¤‘ì¹˜
 				infoE[e] = new InfoE(start, end, weightVal);
-			} // ÀÔ·Â end
+			} // ì…ë ¥ end
 			
-			Arrays.sort(infoE);	// °£¼± °¡ÁßÄ¡·Î ¿À¸§Â÷¼ø Á¤·Ä
+			Arrays.sort(infoE);	// ê°„ì„  ê°€ì¤‘ì¹˜ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 			
 			UnionFind uf = new UnionFind(V);
 			
-			uf.make();			// ¸¸µé±â
+			uf.make();			// ë§Œë“¤ê¸°
 			
 			int count=0;
 			
-			long weight = 0;		// °¡ÁßÄ¡
+			long weight = 0;		// ê°€ì¤‘ì¹˜
 			for (int i = 0; i < E; i++) {
 				if (!(uf.union(infoE[i].start, infoE[i].end))) {
-					continue; // union ½ÇÆĞ ½Ã ÁßÁöÇÏ°í ´ÙÀ½ °£¼±À¸·Î
+					continue; // union ì‹¤íŒ¨ ì‹œ ì¤‘ì§€í•˜ê³  ë‹¤ìŒ ê°„ì„ ìœ¼ë¡œ
 				}
-				weight += infoE[i].weightVal; // °¡ÁßÄ¡ ´õÇØÁÖ±â
+				weight += infoE[i].weightVal; // ê°€ì¤‘ì¹˜ ë”í•´ì£¼ê¸°
 				count++;
-				if (count == V - 1) { // V-1°³ÀÇ °£¼±À» »Ì¾ÒÀ¸¸é ¹İº¹¹® ÁßÁö
+				if (count == V - 1) { // V-1ê°œì˜ ê°„ì„ ì„ ë½‘ì•˜ìœ¼ë©´ ë°˜ë³µë¬¸ ì¤‘ì§€
 					break;
 				}
 			}

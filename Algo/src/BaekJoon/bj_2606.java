@@ -11,13 +11,13 @@ public class bj_2606 {
 
 		Scanner sc = new Scanner(System.in);
 		
-		int N = sc.nextInt();	// ÄÄÇ»ÅÍ°³¼ö
-		int M = sc.nextInt();	// ¿¬°áµÈ ÄÄÅÍ ½Ö
-		int count = -1;			// ¹ÙÀÌ·¯½º °É¸° ÄÄÇ»ÅÍ °³¼ö
+		int N = sc.nextInt();	// ì»´í“¨í„°ê°œìˆ˜
+		int M = sc.nextInt();	// ì—°ê²°ëœ ì»´í„° ìŒ
+		int count = -1;			// ë°”ì´ëŸ¬ìŠ¤ ê±¸ë¦° ì»´í“¨í„° ê°œìˆ˜
 		
-		boolean[][] isLined = new boolean[N+1][N+1];	// ¿¬°á¿©ºÎ È®ÀÎ
+		boolean[][] isLined = new boolean[N+1][N+1];	// ì—°ê²°ì—¬ë¶€ í™•ì¸
 		
-		for(int m=0;m<M;m++) {		// ¿¬°á¿©ºÎ ÀÔ·Â ¹Ş±â
+		for(int m=0;m<M;m++) {		// ì—°ê²°ì—¬ë¶€ ì…ë ¥ ë°›ê¸°
 			int i = sc.nextInt();
 			int j = sc.nextInt();
 			isLined[i][j] = true;
@@ -40,12 +40,12 @@ public class bj_2606 {
 			for(int j=1;j<isLined.length;j++) {
 				if(isLined[cur][j] && !visited[j]) {
 					q.add(j);
-					//System.out.println("ÄÄÇ»ÅÍ ¹øÈ£: " + j);
+					//System.out.println("ì»´í“¨í„° ë²ˆí˜¸: " + j);
 					visited[j] = true;
 					
 				}
 			}
-		} // bfs ³¡
+		} // bfs ë
 		
 		System.out.println(count);
 

@@ -10,9 +10,9 @@ import java.util.Queue;
 
 public class bj_2667 {
 
-	static int N;					// ´ÜÁöÀÇ Å©±â
-	static int map[][];				// ´ÜÁö Áöµµ
-	static boolean visit[][];		// ¹æ¹® È®ÀÎ
+	static int N;					// ë‹¨ì§€ì˜ í¬ê¸°
+	static int map[][];				// ë‹¨ì§€ ì§€ë„
+	static boolean visit[][];		// ë°©ë¬¸ í™•ì¸
 	static int di[] = {1,-1,0,0};
 	static int dj[] = {0,0,1,-1};
 	static ArrayList<Integer> count;
@@ -26,7 +26,7 @@ public class bj_2667 {
 		map = new int[N][N];
 		visit = new boolean[N][N];
 		
-		// ¹è¿­ ÀÔ·Â ¹Ş±â
+		// ë°°ì—´ ì…ë ¥ ë°›ê¸°
 		for(int i=0;i<N;i++) {
 			char[] temp = br.readLine().toCharArray();
 			for(int j=0;j<N;j++) {
@@ -36,21 +36,21 @@ public class bj_2667 {
 		
 		Queue<Point> queue = new LinkedList<>();
 		
-		// ÀüÃ¼ ¹è¿­ ¼øÈ¸
-		danji = 0; // ´ÜÁö °³¼ö
+		// ì „ì²´ ë°°ì—´ ìˆœíšŒ
+		danji = 0; // ë‹¨ì§€ ê°œìˆ˜
 		count = new ArrayList<Integer>(); 
-			// ÁıÀÇ °³¼ö ´ãÀ» ¸®½ºÆ®, ÀÎµ¦½º  = ´ÜÁö ¹øÈ£-1
-			// ´ÜÁö°¡ ¸î°³ »ı±æÁö ¸ô¶ó¼­ arraylist·Î ¼±¾ğ..
+			// ì§‘ì˜ ê°œìˆ˜ ë‹´ì„ ë¦¬ìŠ¤íŠ¸, ì¸ë±ìŠ¤  = ë‹¨ì§€ ë²ˆí˜¸-1
+			// ë‹¨ì§€ê°€ ëª‡ê°œ ìƒê¸¸ì§€ ëª°ë¼ì„œ arraylistë¡œ ì„ ì–¸..
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 
-				if (map[i][j] == 1) { // ÁıÀÌ ÀÖ´Â À§Ä¡ÀÌ°í
-					if (!visit[i][j]) { // ¹æ¹®ÇÏÁö ¾Ê¾Ò´Ù¸é
-						danji++; // »õ·Î¿î ´ÜÁö°¡ »ı°åÀ¸´Ï±î ´ÜÁö ´Ã·ÁÁÜ
+				if (map[i][j] == 1) { // ì§‘ì´ ìˆëŠ” ìœ„ì¹˜ì´ê³ 
+					if (!visit[i][j]) { // ë°©ë¬¸í•˜ì§€ ì•Šì•˜ë‹¤ë©´
+						danji++; // ìƒˆë¡œìš´ ë‹¨ì§€ê°€ ìƒê²¼ìœ¼ë‹ˆê¹Œ ë‹¨ì§€ ëŠ˜ë ¤ì¤Œ
 
-						queue.add(new Point(i, j)); // Å¥¿¡ ÇÏ³ª Ãß°¡
-						visit[i][j] = true; // ÀÚ±âÀÚ½Å ¹æ¹®Ã³¸®
-						count.add(1); // »õ·Î¿î ´ÜÁöÀÇ Áı °³¼ö Ãß°¡
+						queue.add(new Point(i, j)); // íì— í•˜ë‚˜ ì¶”ê°€
+						visit[i][j] = true; // ìê¸°ìì‹  ë°©ë¬¸ì²˜ë¦¬
+						count.add(1); // ìƒˆë¡œìš´ ë‹¨ì§€ì˜ ì§‘ ê°œìˆ˜ ì¶”ê°€
 
 						while (!queue.isEmpty()) {
 
@@ -82,8 +82,8 @@ public class bj_2667 {
 
 					}
 				}
-			} // ¹è¿­ ¼øÈ¸ j ³¡
-		} // ¹è¿­ ¼øÈ¸ i ³¡
+			} // ë°°ì—´ ìˆœíšŒ j ë
+		} // ë°°ì—´ ìˆœíšŒ i ë
 
 		Collections.sort(count);
 		System.out.println(danji);

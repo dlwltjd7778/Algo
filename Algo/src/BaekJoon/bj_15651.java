@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
-// n°ú m(3) : ¼ø¼­ ÀÖÀ½, ÀÚ±âÀÚ½Å »ÌÀ½ >> Áßº¹¼ø¿­
+// nê³¼ m(3) : ìˆœì„œ ìžˆìŒ, ìžê¸°ìžì‹  ë½‘ìŒ >> ì¤‘ë³µìˆœì—´
 /*
-ÀÔ·Â : 4 2
+ìž…ë ¥ : 4 2
 1 1 
 1 2 
 1 3 

@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class swea_1238_dfs {
 	
 	static int[][] map;
-	static int ans;		// °¡Àå ´Ê°Ô ¿¬¶ô¹Ş´Â ¾Ö( ¿©·µÀÌ¶ó¸é ±×Áß ¹øÈ£°¡ Å« ¾Ö)
+	static int ans;		// ê°€ì¥ ëŠ¦ê²Œ ì—°ë½ë°›ëŠ” ì• ( ì—¬ëŸ¿ì´ë¼ë©´ ê·¸ì¤‘ ë²ˆí˜¸ê°€ í° ì• )
 	static boolean[] visit;
-	static int N, start;	// ÀÔ·ÂµÇ´Â ¿¬°áÁ¤Á¡ÀÇ °¹¼ö, ½ÃÀÛ³ëµå
+	static int N, start;	// ì…ë ¥ë˜ëŠ” ì—°ê²°ì •ì ì˜ ê°¯ìˆ˜, ì‹œì‘ë…¸ë“œ
 	static int maxDist;
-	static int[] dist;		// Á¤Á¡±îÁöÀÇ °Å¸®°¡°¡Àå ÂªÀº °æ¿ì°¡ ±â·ÏµÇ¾úÀ»°Í
+	static int[] dist;		// ì •ì ê¹Œì§€ì˜ ê±°ë¦¬ê°€ê°€ì¥ ì§§ì€ ê²½ìš°ê°€ ê¸°ë¡ë˜ì—ˆì„ê²ƒ
 
     public static void main(String[] args) throws IOException {
  
@@ -30,11 +30,11 @@ public class swea_1238_dfs {
     		for(int i=0;i<N/2;i++) {
     			int st = sc.nextInt();
     			int end = sc.nextInt();
-    			map[st][end] = 1;			// ÀÔ·Â ¹Ş±â
+    			map[st][end] = 1;			// ì…ë ¥ ë°›ê¸°
     		}
     		
-    		// dfs ¸Ş¼Òµå : ÀÏ´Ü ´Ù¸¥¾Öµé ¿¬¶ô °¡´ÉÇÏ´õ¶óµµ ÇÑ³ğºÎÅÍ ¼±ÅÃÇØ¼­ ¿¬¶ô µ¹·Áº¸±â
-    		Arrays.fill(dist, Integer.MAX_VALUE);	// 1Â÷ ¹è¿­À» °¡Àå Å«°ªÀ¸·Î Ã¤¿ö³Ö±â
+    		// dfs ë©”ì†Œë“œ : ì¼ë‹¨ ë‹¤ë¥¸ì• ë“¤ ì—°ë½ ê°€ëŠ¥í•˜ë”ë¼ë„ í•œë†ˆë¶€í„° ì„ íƒí•´ì„œ ì—°ë½ ëŒë ¤ë³´ê¸°
+    		Arrays.fill(dist, Integer.MAX_VALUE);	// 1ì°¨ ë°°ì—´ì„ ê°€ì¥ í°ê°’ìœ¼ë¡œ ì±„ì›Œë„£ê¸°
     		dfs(start,0);
     		
     		maxDist = 0;
@@ -53,7 +53,7 @@ public class swea_1238_dfs {
     } // main end
 
     
-    // dfs ¸Ş¼Òµå : ÀÏ´Ü ´Ù¸¥¾Öµé ¿¬¶ô °¡´ÉÇÏ´õ¶óµµ ÇÑ³ğºÎÅÍ ¼±ÅÃÇØ¼­ ¿¬¶ô µ¹·Áº¸±â
+    // dfs ë©”ì†Œë“œ : ì¼ë‹¨ ë‹¤ë¥¸ì• ë“¤ ì—°ë½ ê°€ëŠ¥í•˜ë”ë¼ë„ í•œë†ˆë¶€í„° ì„ íƒí•´ì„œ ì—°ë½ ëŒë ¤ë³´ê¸°
     static void dfs(int now, int cnt) {
     	
     	dist[now] = cnt;

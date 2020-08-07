@@ -6,31 +6,31 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class bj_1931_È¸ÀÇ½Ç¹èÁ¤ {
+public class bj_1931_íšŒì˜ì‹¤ë°°ì • {
 	
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine()," ");
-		int N = Integer.parseInt(st.nextToken());	// È¸ÀÇ °³¼ö
-		Time[] timeList = new Time[N];				// È¸ÀÇ Á¤º¸ ´ãÀº ¹è¿­ »ı¼º
+		int N = Integer.parseInt(st.nextToken());	// íšŒì˜ ê°œìˆ˜
+		Time[] timeList = new Time[N];				// íšŒì˜ ì •ë³´ ë‹´ì€ ë°°ì—´ ìƒì„±
 		
 		
 		for(int n=0;n<N;n++) {
 			st = new StringTokenizer(br.readLine()," ");
-			int start = Integer.parseInt(st.nextToken());	// ½ÃÀÛ½Ã°£ ÀúÀå
-			int end = Integer.parseInt(st.nextToken());		// ³¡½Ã°£ ÀúÀå
-			timeList[n] = new Time(start, end);				// °¢°¢ ¸®½ºÆ®¿¡ ÀúÀå
+			int start = Integer.parseInt(st.nextToken());	// ì‹œì‘ì‹œê°„ ì €ì¥
+			int end = Integer.parseInt(st.nextToken());		// ëì‹œê°„ ì €ì¥
+			timeList[n] = new Time(start, end);				// ê°ê° ë¦¬ìŠ¤íŠ¸ì— ì €ì¥
 		}
 		
-		Arrays.sort(timeList);	// ½Ã°£Ç¥¸¦ ³¡½Ã°£ÀÌ ºü¸¥ ¼øÀ¸·Î ÀúÀå
+		Arrays.sort(timeList);	// ì‹œê°„í‘œë¥¼ ëì‹œê°„ì´ ë¹ ë¥¸ ìˆœìœ¼ë¡œ ì €ì¥
 		
 		int nowEnd = timeList[0].end;
-		int count = 1;					// °¡´ÉÇÑ È¸ÀÇ °³¼ö
+		int count = 1;					// ê°€ëŠ¥í•œ íšŒì˜ ê°œìˆ˜
 		for(int n=1;n<N;n++) {			
-			if(nowEnd <= timeList[n].start) {	// ÀÌÀü È¸ÀÇ°¡ ³¡³ª´Â ½Ã°£ÀÌ
-				nowEnd = timeList[n].end;		// ÇöÀç ½ÃÀÛ½Ã°£º¸´Ù ÀÛ°Å³ª °°´Ù¸é nowEnd°»½Å
+			if(nowEnd <= timeList[n].start) {	// ì´ì „ íšŒì˜ê°€ ëë‚˜ëŠ” ì‹œê°„ì´
+				nowEnd = timeList[n].end;		// í˜„ì¬ ì‹œì‘ì‹œê°„ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ë‹¤ë©´ nowEndê°±ì‹ 
 				count++;
 			}
 		}
@@ -39,7 +39,7 @@ public class bj_1931_È¸ÀÇ½Ç¹èÁ¤ {
 		
 	} // main end
 	
-	// È¸ÀÇ½Ç ½Ã°£ Á¤º¸ ÀúÀåÇÏ´Â Time class
+	// íšŒì˜ì‹¤ ì‹œê°„ ì •ë³´ ì €ì¥í•˜ëŠ” Time class
 	static class Time implements Comparable<Time>{
 		int start, end;
 

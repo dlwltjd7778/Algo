@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class bj_15656_n°úm_7 {
+public class bj_15656_nê³¼m_7 {
 
 	static BufferedReader br;
 	static BufferedWriter bw;
@@ -49,7 +49,7 @@ public class bj_15656_n°úm_7 {
 		}
 		
 		for(int i=0;i<N;i++) {
-			ans[cnt] = input[i];		// ³ª¸¦ ´Ù½Ã »Ì¾Æµµ »ó°ü ¾øÀ½ > select ¹è¿­ ÇÊ¿ä x
+			ans[cnt] = input[i];		// ë‚˜ë¥¼ ë‹¤ì‹œ ë½‘ì•„ë„ ìƒê´€ ì—†ìŒ > select ë°°ì—´ í•„ìš” x
 			perm(cnt+1);
 		}
 	}

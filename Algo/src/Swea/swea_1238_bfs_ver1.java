@@ -29,7 +29,7 @@ public class swea_1238_bfs_ver1 {
             start = Integer.parseInt(st.nextToken());
  
             num = new boolean[101][101];
-            max = 0; // ÃÖ´ñ°ª ÀúÀåÇÒ º¯¼ö
+            max = 0; // ìµœëŒ“ê°’ ì €ìž¥í•  ë³€ìˆ˜
  
             st = new StringTokenizer(br.readLine(), " ");
  
@@ -45,10 +45,10 @@ public class swea_1238_bfs_ver1 {
  
     }
  
-    // µé¾î°¥¶§ ¹æ¹® Ã³¸®
+    // ë“¤ì–´ê°ˆë•Œ ë°©ë¬¸ ì²˜ë¦¬
     private static int bfs(int start) {
         Queue<Integer> queue = new LinkedList<Integer>();
-        Queue<Integer> ansCandidate = new LinkedList<Integer>();    // Á¤´ä ÈÄº¸
+        Queue<Integer> ansCandidate = new LinkedList<Integer>();    // ì •ë‹µ í›„ë³´
         boolean visited[] = new boolean[101];
         queue.add(start);
         visited[start] = true; 
@@ -57,23 +57,23 @@ public class swea_1238_bfs_ver1 {
              
             int size = queue.size();
              
-            ansCandidate.clear();   // ´Ù ºñ¿ì±â
+            ansCandidate.clear();   // ë‹¤ ë¹„ìš°ê¸°
              
-            for (int s = 0; s < size; s++) { // Å¥ »çÀÌÁî ¸¸Å­ µ¹±â 
+            for (int s = 0; s < size; s++) { // í ì‚¬ì´ì¦ˆ ë§Œí¼ ëŒê¸° 
                 int cur = queue.poll();
                 ansCandidate.add(cur);
  
                 for (int i = 1; i < 101; ++i) {
                     if (num[cur][i] && !visited[i]) {
                         queue.add(i);
-                        visited[i] = true; // ¹æ¹ý2 : µé¾î°¥¶§ ¹æ¹® Ã³¸®
+                        visited[i] = true; // ë°©ë²•2 : ë“¤ì–´ê°ˆë•Œ ë°©ë¬¸ ì²˜ë¦¬
                     }
                 }
             }   // size for end
              
-        } // while¹® end
+        } // whileë¬¸ end
          
-        max = Collections.max(ansCandidate);	// collectionÀÇ ÃÖ´ñ°ªÀ» Ã£¾ÆÁÖ´Â ¸Þ¼Òµå Á¸ÀçÇÔ
+        max = Collections.max(ansCandidate);	// collectionì˜ ìµœëŒ“ê°’ì„ ì°¾ì•„ì£¼ëŠ” ë©”ì†Œë“œ ì¡´ìž¬í•¨
         
 //        while(!ansCandidate.isEmpty()) {
 //            int tmp = ansCandidate.poll();

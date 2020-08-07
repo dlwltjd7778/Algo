@@ -3,7 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-// ¿ø·¡ ÀÇµµ´Â.. Æ®¸®¸¦ ¸¸µé¾î¼­ ÀÚ½Ä Ãß°¡ÇÏ°í ¹¹ ±×·¡ºÁ¶ó.. °ÚÁö¸¸..... ±ÍÂú....
+// ì›ë˜ ì˜ë„ëŠ”.. íŠ¸ë¦¬ë¥¼ ë§Œë“¤ì–´ì„œ ìì‹ ì¶”ê°€í•˜ê³  ë­ ê·¸ë˜ë´ë¼.. ê² ì§€ë§Œ..... ê·€ì°®....
 public class swea_1233 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,12 +16,12 @@ public class swea_1233 {
 			for (int i = 0; i < size; i++) {
 				String[] line = br.readLine().split(" ");
 				
-				char ch = line[1].charAt(0); // 1 - 2 3 ÀÎ °æ¿ì '-'
+				char ch = line[1].charAt(0); // 1 - 2 3 ì¸ ê²½ìš° '-'
 
-				if(((ch=='-' || ch=='+' || ch=='*' || ch=='/') && line.length<4) // ¿¬»êÀÚ°¡ ÀÚ½ÄÀÌ ºÎÁ·ÇÏ°Å³ª
-						|| ((ch>='0'&&ch<='9') && line.length>2)) { // ¼ıÀÚ°¡ ÀÚ½ÄÀ» °¡Áö´Â °æ¿ì
+				if(((ch=='-' || ch=='+' || ch=='*' || ch=='/') && line.length<4) // ì—°ì‚°ìê°€ ìì‹ì´ ë¶€ì¡±í•˜ê±°ë‚˜
+						|| ((ch>='0'&&ch<='9') && line.length>2)) { // ìˆ«ìê°€ ìì‹ì„ ê°€ì§€ëŠ” ê²½ìš°
 					ans=0;
-				} // ¿©±â¼­ break ÇÏ¸é ¾ÈµÊ. ³ª¸ÓÁö ÀÔ·Âµµ for ³¡±îÁö ´Ù µ¹¾Æ¼­ ¹Ş±ä ¹Ş¾Æ¾ß ÇÔ.
+				} // ì—¬ê¸°ì„œ break í•˜ë©´ ì•ˆë¨. ë‚˜ë¨¸ì§€ ì…ë ¥ë„ for ëê¹Œì§€ ë‹¤ ëŒì•„ì„œ ë°›ê¸´ ë°›ì•„ì•¼ í•¨.
 			}
 			
 			System.out.println("#"+tc+" "+ans);

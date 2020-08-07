@@ -12,11 +12,11 @@ public class bj_4963 {
 	static int[] di = {-1,-1,0,1,1,1,0,-1};
 	static int[] dj = {0,1,1,1,0,-1,-1,-1};
 
-	static int w,h;					// ³Êºñ, ³ôÀÌ
-	static int[][] map;				// Áöµµ
-	static boolean[][] visit;		// ¹æ¹®¿©ºÎ
-	static int landCnt;				// ¼¶ °³¼ö
-	static Queue<Point> queue;		// ¹æ¹®Ã¼Å© Å¥
+	static int w,h;					// ë„ˆë¹„, ë†’ì´
+	static int[][] map;				// ì§€ë„
+	static boolean[][] visit;		// ë°©ë¬¸ì—¬ë¶€
+	static int landCnt;				// ì„¬ ê°œìˆ˜
+	static Queue<Point> queue;		// ë°©ë¬¸ì²´í¬ í
 	
 	public static void main(String[] args) throws IOException {
 	
@@ -26,10 +26,10 @@ public class bj_4963 {
 			
 			StringTokenizer st = new StringTokenizer(br.readLine()," ");
 			
-			// ÀÔ·ÂºÎºĞ
+			// ì…ë ¥ë¶€ë¶„
 			w = Integer.parseInt(st.nextToken());
 			h = Integer.parseInt(st.nextToken());
-			if(w==0 && h==0) break;	// ³ôÀÌ¿Í ³Êºñ ¸ğµÎ 0ÀÌ¸é ÀÔ·Â ±×¸¸¹Ş±â
+			if(w==0 && h==0) break;	// ë†’ì´ì™€ ë„ˆë¹„ ëª¨ë‘ 0ì´ë©´ ì…ë ¥ ê·¸ë§Œë°›ê¸°
 			
 			map = new int[h][w];
 			visit = new boolean[h][w];
@@ -47,12 +47,12 @@ public class bj_4963 {
 			/////////////////////////////////////////////////////////
 			
 			for(int i=0;i<h;i++) {
-				for(int j=0;j<w;j++) {		// ÇÏ³ª¾¿ ´Ù µ¹¸é¼­
+				for(int j=0;j<w;j++) {		// í•˜ë‚˜ì”© ë‹¤ ëŒë©´ì„œ
 					
-					if(map[i][j]==1 && !visit[i][j]) {	// map[i][j] °¡ ¶¥ÀÌ°í ¾ÆÁ÷ ¹æ¹® ÀüÀÌ¶ó¸é
+					if(map[i][j]==1 && !visit[i][j]) {	// map[i][j] ê°€ ë•…ì´ê³  ì•„ì§ ë°©ë¬¸ ì „ì´ë¼ë©´
 						
-						queue.add(new Point(i, j)); // Å¥¿¡ Ãß°¡
-						visit[i][j] = true;			// ¹æ¹®Ã³¸®
+						queue.add(new Point(i, j)); // íì— ì¶”ê°€
+						visit[i][j] = true;			// ë°©ë¬¸ì²˜ë¦¬
 						landCnt++;
 						
 						while(!queue.isEmpty()) {
@@ -66,8 +66,8 @@ public class bj_4963 {
 								
 								if(ni<0 || nj<0 || ni>h-1 || nj>w-1) continue;
 								if(map[ni][nj]==1 && !visit[ni][nj]) {
-									queue.add(new Point(ni, nj));   // Å¥¿¡ Ãß°¡
-									visit[ni][nj] = true;			// ¹æ¹®Ã³¸®
+									queue.add(new Point(ni, nj));   // íì— ì¶”ê°€
+									visit[ni][nj] = true;			// ë°©ë¬¸ì²˜ë¦¬
 								}
 							}
 						}
@@ -78,7 +78,7 @@ public class bj_4963 {
 					
 				}
 			}
-			// ¼¶ °³¼ö Ãâ·Â
+			// ì„¬ ê°œìˆ˜ ì¶œë ¥
 			System.out.println(landCnt);
 			
 		}

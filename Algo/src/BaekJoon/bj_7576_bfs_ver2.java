@@ -37,8 +37,8 @@ public class bj_7576_bfs_ver2 {
 			for(int j=0;j<M;j++) {
 				tomato[i][j] = Integer.parseInt(st.nextToken());
 				if(tomato[i][j]==1) {
-					q.add(new Point(i, j, day));				// ÀÌ¹Ì ÀÍÀº Åä¸¶Åä¸¦ Å¥¿¡ ÀúÀå
-					ansPointList.add(new Point(i, j, day));		// ÀÌ¹Ì ÀÍÀº Åä¸¶Åä¸¦ Á¤´ä ÈÄº¸¿¡ ÀúÀå
+					q.add(new Point(i, j, day));				// ì´ë¯¸ ìµì€ í† ë§ˆí† ë¥¼ íì— ì €ì¥
+					ansPointList.add(new Point(i, j, day));		// ì´ë¯¸ ìµì€ í† ë§ˆí† ë¥¼ ì •ë‹µ í›„ë³´ì— ì €ì¥
 				}
 				
 			}
@@ -54,12 +54,12 @@ public class bj_7576_bfs_ver2 {
 			}
 		}
 		
-		if(allGrown) {						// ¾ÈÀÍÀº Åä¸¶Åä°¡ ¾øÀ» °æ¿ì 0 À» Ãâ·ÂÇÏ°í return
+		if(allGrown) {						// ì•ˆìµì€ í† ë§ˆí† ê°€ ì—†ì„ ê²½ìš° 0 ì„ ì¶œë ¥í•˜ê³  return
 			System.out.println(maxDay); 
 			return;
 		}
 		
-		// bfs ½ÃÀÛ
+		// bfs ì‹œì‘
 		while(!q.isEmpty()) {
 			
 			Point now = q.poll();
@@ -69,22 +69,22 @@ public class bj_7576_bfs_ver2 {
 				int ni = nowi + di[d];
 				int nj = nowj + dj[d];
 				
-				if (ni < 0 || nj < 0 || ni > N-1 || nj > M-1) continue; // ¹è¿­ ¹üÀ§ Ã¼Å©
+				if (ni < 0 || nj < 0 || ni > N-1 || nj > M-1) continue; // ë°°ì—´ ë²”ìœ„ ì²´í¬
 				
 				if (tomato[nowi][nowj] == 1 
 						&& tomato[ni][nj] == 0 
 						&& !visit[ni][nj]) {
 					tomato[ni][nj] = 1;
-					visit[ni][nj] = true; // ¹æ¹® Ç¥½Ã
+					visit[ni][nj] = true; // ë°©ë¬¸ í‘œì‹œ
 					q.add(new Point(ni, nj, now.day + 1));
 					ansPointList.add(new Point(ni, nj, now.day + 1));
 				}
 				
-			}	// »ó,ÇÏ,ÁÂ,¿ì Å½»ö ³¡
+			}	// ìƒ,í•˜,ì¢Œ,ìš° íƒìƒ‰ ë
 			
 		} // bfs end
 		
-		boolean chk = true;			// ¾ÈÀÍÀº Åä¸¶Åä°¡ ÀÖ´ÂÁö È®ÀÎ, ÀÖÀ¸¸é -1 return
+		boolean chk = true;			// ì•ˆìµì€ í† ë§ˆí† ê°€ ìˆëŠ”ì§€ í™•ì¸, ìˆìœ¼ë©´ -1 return
 		for(int i=0;i<N;i++) {
 			for(int j=0;j<M;j++) {
 				if(tomato[i][j]==0) {
@@ -96,7 +96,7 @@ public class bj_7576_bfs_ver2 {
 			}
 		}
 		
-		// À§ÀÇ °æ¿ì°¡ ÀüºÎ ¾Æ´Ò¶§
+		// ìœ„ì˜ ê²½ìš°ê°€ ì „ë¶€ ì•„ë‹ë•Œ
 		for (int i = 0; i < ansPointList.size(); i++) {
 			int nowDay = ansPointList.get(i).day;
 			if (nowDay > maxDay)
@@ -109,7 +109,7 @@ public class bj_7576_bfs_ver2 {
 	
 	static class Point{
 		int i,j;
-		int day;	// i,j ÁÂÇ¥°¡ ÇÑ Á¤Á¡ÀÌ µÊ!
+		int day;	// i,j ì¢Œí‘œê°€ í•œ ì •ì ì´ ë¨!
 		Point(int i,int j,int d){
 			this.i = i;
 			this.j = j;

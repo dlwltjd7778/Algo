@@ -8,15 +8,15 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class bj_15655_n°úm_6 {
+public class bj_15655_nê³¼m_6 {
 
 	static BufferedReader br;
 	static StringTokenizer st;
 	static BufferedWriter bw;
 	
 	static int N,M;
-	static int[] input;	// ÀÔ·Â¹è¿­
-	static int[] ans;	// Á¤´ä¹è¿­
+	static int[] input;	// ìž…ë ¥ë°°ì—´
+	static int[] ans;	// ì •ë‹µë°°ì—´
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -54,7 +54,7 @@ public class bj_15655_n°úm_6 {
 		
 		for(int i=idx;i<N;i++) {	
 			ans[cnt] = input[i];
-			comb(cnt+1,i+1);		// idx¸¦ 1¾¿ Áõ°¡½ÃÅ°±â ¶§¹®¿¡ ÀÚ±â ÀÚ½ÅÀº ´Ù½Ã ¾È»ÌÀ½
+			comb(cnt+1,i+1);		// idxë¥¼ 1ì”© ì¦ê°€ì‹œí‚¤ê¸° ë•Œë¬¸ì— ìžê¸° ìžì‹ ì€ ë‹¤ì‹œ ì•ˆë½‘ìŒ
 		}
 	}
 }

@@ -10,10 +10,10 @@ import java.util.Scanner;
 public class swea_1238_bfs_ver2 {
 	
 	static int[][] map;
-	static int ans;		// °¡Àå ´Ê°Ô ¿¬¶ô¹Ş´Â ¾Ö( ¿©·µÀÌ¶ó¸é ±×Áß ¹øÈ£°¡ Å« ¾Ö)
+	static int ans;		// ê°€ì¥ ëŠ¦ê²Œ ì—°ë½ë°›ëŠ” ì• ( ì—¬ëŸ¿ì´ë¼ë©´ ê·¸ì¤‘ ë²ˆí˜¸ê°€ í° ì• )
 	static boolean[] visit;
-	static boolean[] exist;	// ÇĞ»ı ¹øÈ£°¡ ¹İµå½Ã ¿¬¼ÓÀûÀÌÁö ¾ÊÀ¸¹Ç·Î Á¸ÀçÇÏ´Â ¾Öµé Ç¥½ÃÇØ³õ±â
-	static int N, start;	// ÀÔ·ÂµÇ´Â ¿¬°áÁ¤Á¡ÀÇ °¹¼ö, ½ÃÀÛ³ëµå
+	static boolean[] exist;	// í•™ìƒ ë²ˆí˜¸ê°€ ë°˜ë“œì‹œ ì—°ì†ì ì´ì§€ ì•Šìœ¼ë¯€ë¡œ ì¡´ì¬í•˜ëŠ” ì• ë“¤ í‘œì‹œí•´ë†“ê¸°
+	static int N, start;	// ì…ë ¥ë˜ëŠ” ì—°ê²°ì •ì ì˜ ê°¯ìˆ˜, ì‹œì‘ë…¸ë“œ
 	static int maxDist;
 
     public static void main(String[] args) throws IOException {
@@ -34,18 +34,18 @@ public class swea_1238_bfs_ver2 {
     		for(int i=0;i<N/2;i++) {
     			int st = sc.nextInt();
     			int end = sc.nextInt();
-    			map[st][end] = 1;			// ÀÔ·Â ¹Ş±â
+    			map[st][end] = 1;			// ì…ë ¥ ë°›ê¸°
     			exist[st] = true;
     			exist[end] = true;
     		}
     		
     		
-    		// BFS ver1 : Å½»öÇÏ¸é¼­ ¹æ¹®ÇÏ´Â °¢ Á¤Á¡¸¶´Ù °Å¸®¸¦ °°ÀÌ ±â·ÏÇØ³õ±â
+    		// BFS ver1 : íƒìƒ‰í•˜ë©´ì„œ ë°©ë¬¸í•˜ëŠ” ê° ì •ì ë§ˆë‹¤ ê±°ë¦¬ë¥¼ ê°™ì´ ê¸°ë¡í•´ë†“ê¸°
     		Queue<Student> queue = new LinkedList<swea_1238_bfs_ver2.Student>();
     		queue.add(new Student(start,0));
     		
     		ArrayList<Student> candidate = new ArrayList<>();
-    		visit[start] = true;				// q¿¡ Áı¾î³Ö´Â ¼ø°£ ¹æ¹®Ã³¸® ÇÏ±â
+    		visit[start] = true;				// qì— ì§‘ì–´ë„£ëŠ” ìˆœê°„ ë°©ë¬¸ì²˜ë¦¬ í•˜ê¸°
 
     		while(!queue.isEmpty()) {
     			
@@ -58,18 +58,18 @@ public class swea_1238_bfs_ver2 {
     				}
     			}	
     			
-    			if(now.dist > maxDist) {	// °Å¸®°¡ ¸Ö´Ù! Áö±İ±îÁö ¸ğÀº ¾ÖµéÀº Áö¿ì±â
+    			if(now.dist > maxDist) {	// ê±°ë¦¬ê°€ ë©€ë‹¤! ì§€ê¸ˆê¹Œì§€ ëª¨ì€ ì• ë“¤ì€ ì§€ìš°ê¸°
     				candidate.clear();
     				//System.out.println(now.num+">");
     				maxDist = now.dist;
     				candidate.add(now);
-    			} else if(now.dist == maxDist) {	// °Å¸®°¡ °°À½! ÀÏ´Ü ¸ğÀ¸±â
+    			} else if(now.dist == maxDist) {	// ê±°ë¦¬ê°€ ê°™ìŒ! ì¼ë‹¨ ëª¨ìœ¼ê¸°
     				candidate.add(now);
     			//	System.out.println(now.num);
     			}
     		}
     		
-    		for(int i=0;i<candidate.size();i++) {		// °Å¸®°¡ ¸Õ ¾Öµé¸¸ ¸ğÀÎ ¸®½ºÆ®¿¡¼­ ÇĞ»ı¹øÈ£ Å«°ÅÃ£±â
+    		for(int i=0;i<candidate.size();i++) {		// ê±°ë¦¬ê°€ ë¨¼ ì• ë“¤ë§Œ ëª¨ì¸ ë¦¬ìŠ¤íŠ¸ì—ì„œ í•™ìƒë²ˆí˜¸ í°ê±°ì°¾ê¸°
     			if(candidate.get(i).num > ans)
     				ans = candidate.get(i).num;
     		}
@@ -82,14 +82,14 @@ public class swea_1238_bfs_ver2 {
     } // main end
  
     static class Student{
-    	int num; 	// ÇĞ»ı¹øÈ£
-    	int dist;	// Ãâ¹ßÁ¡¿¡¼­ °Â±îÁö °É¸®´Â °Å¸®
+    	int num; 	// í•™ìƒë²ˆí˜¸
+    	int dist;	// ì¶œë°œì ì—ì„œ ê±”ê¹Œì§€ ê±¸ë¦¬ëŠ” ê±°ë¦¬
     	
     	Student(int n,int d){
     		num = n;
     		dist = d;
     	}
-    } // °´Ã¼·Î ÇĞ»ı¹øÈ£¿Í °Å¸® ¹­¾îÁÜ
+    } // ê°ì²´ë¡œ í•™ìƒë²ˆí˜¸ì™€ ê±°ë¦¬ ë¬¶ì–´ì¤Œ
     
     
 } // class end
