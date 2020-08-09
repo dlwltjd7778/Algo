@@ -29,8 +29,6 @@ public class swea_9229 {
 				snack[i] = sc.nextInt();
 			}
 			
-			
-			
 			int result = combination(0,0);
 			System.out.println("#" + tc + " " + result);
 			
