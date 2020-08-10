@@ -18,7 +18,7 @@ public class bj_15663_n과m_9 {
 	static BufferedReader br;
 	static BufferedWriter bw;
 	static StringTokenizer st;
-	static HashSet<String> set;
+	static HashSet<Integer[]> set;
 	
 	static int N,M;
 	static int[] input;
@@ -29,7 +29,7 @@ public class bj_15663_n과m_9 {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		st = new StringTokenizer(br.readLine()," ");
 		bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		set = new HashSet<String>();
+		set = new HashSet<Integer[]>();
 		
 		
 		
@@ -47,7 +47,11 @@ public class bj_15663_n과m_9 {
 		Arrays.sort(input);
 		
 		perm(0);
-
+		
+		Iterator iter = set.iterator();	// Iterator 사용
+		while(iter.hasNext()) {//값이 있으면 true 없으면 false
+		    System.out.println(iter.next());
+		}
 		
 	}
 	
@@ -58,7 +62,7 @@ public class bj_15663_n과m_9 {
 			for(int i=0;i<M;i++) {
 				temp += ans[i] + " ";
 			}
-			set.add(temp);
+			set.add(ans);
 			return;
 		}
 		
