@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class test1_0810 {
 public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);	// 입력받기 위해 스캐너 선언
+		Scanner sc = new Scanner(System.in);	// 입력받기 위해 스캐너 선언!
 		
 		String str = sc.nextLine();		// 주어지는 문장 저장하는 str 변수
 		int num = sc.nextInt();			// 1이면 모음적용, 2이면 ssafy 적용
