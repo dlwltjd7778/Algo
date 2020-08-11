@@ -51,7 +51,7 @@ public class bj_1260_graph {
 //			System.out.println();
 //		}
 		
-		dfs(V,0,list);
+		dfs(V,list);
 		bw.newLine();
 		bfs(V, list);
 				
@@ -59,19 +59,19 @@ public class bj_1260_graph {
 		
 	}
 	
-	static void dfs(int start, int count, ArrayList<Integer>[] list) throws IOException {
+	static void dfs(int start, ArrayList<Integer>[] list) throws IOException {
 		
 		
 		visit[start] = true;
 		bw.write(start + " ");
 		
-		if(count==M) return;
+		
 		
 		for(int i=0;i<list[start].size();i++) {
 			int tempEnd = list[start].get(i);
 			if(!visit[tempEnd]) {
 				visit[tempEnd] = true;
-				dfs(tempEnd,count+1,list);
+				dfs(tempEnd,list);
 			}
 			
 		}
