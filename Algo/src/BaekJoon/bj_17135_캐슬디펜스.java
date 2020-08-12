@@ -3,6 +3,7 @@ package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -85,7 +86,7 @@ public class bj_17135_캐슬디펜스 {
 	} // comb end
 
 	
-	static int game(int i, int j) {	// 궁수 초기 위치 받음
+	static int game( int j) {	// 궁수 초기 위치 받음
 		
 		
 		for(int d=1;d<=D;d++) {
@@ -94,6 +95,15 @@ public class bj_17135_캐슬디펜스 {
 			
 			
 		}
+		
+		
+		ArrayList<Integer>[] a;
+		a = new ArrayList[10];
+         
+        for (int i=1; i<10; i++) {
+            a[i] = new ArrayList<Integer>();
+        }
+		//a[0].get(b)=1;
 		
 		return 0;
 	}

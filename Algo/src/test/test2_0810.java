@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
+// dfs 풀면 시간초과 날 확률이 매~~~우 큰 문제!!!
+// bfs 로 푸는 것이 좋을듯..
+
+
 public class test2_0810 {
 
 	static int[] di = { -1,1,0,0};	// 좌, 우, 상, 하 로 이동할 수 있는 델타
@@ -89,7 +93,6 @@ public class test2_0810 {
 		}
 		@Override
 		public int compareTo(Point o) {
-			// TODO Auto-generated method stub
 			return this.count - o.count;
 		}
 		
