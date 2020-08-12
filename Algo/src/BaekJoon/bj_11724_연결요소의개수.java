@@ -3,7 +3,6 @@ package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class bj_11724_연결요소의개수 {
@@ -17,22 +16,26 @@ public class bj_11724_연결요소의개수 {
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
-		ArrayList<Integer>[] list = new ArrayList[N+1];
-		visit = new boolean[N+1];
+		UnionFind uf = new UnionFind(N+1);
+		uf.make();
 		
 		for(int i=0;i<M;i++) {
 			st = new StringTokenizer(br.readLine()," ");
 			int start = Integer.parseInt(st.nextToken());
 			int end = Integer.parseInt(st.nextToken());
-			list[start].add(end);
-			list[end].add(start);
+			uf.union(start, end);
 		}
+		int answer = 0;
+		for(int i=1;i<uf.parents.length;i++) {
+			if(uf.parents[i]==i) answer++; 
+		}
+		System.out.println(answer);
 		
 			
 	}
 
 	// Union Find
-	class UnionFind{	
+	static class UnionFind{	
 		int V;
 		int[] parents;
 		
@@ -41,7 +44,7 @@ public class bj_11724_연결요소의개수 {
 		}
 		void make() {
 			parents = new int[V];
-			for (int i = 0; i < V; i++) {
+			for (int i = 1; i < V; i++) {
 				parents[i] = i;
 			}
 		}
