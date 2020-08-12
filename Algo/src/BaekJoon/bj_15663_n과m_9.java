@@ -5,12 +5,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class bj_15663_n과m_9 {
@@ -23,7 +19,6 @@ public class bj_15663_n과m_9 {
 	static int[] input;
 	static boolean[] select;
 	static int[] ans;
-	static int pastNum=-1;
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -34,7 +29,7 @@ public class bj_15663_n과m_9 {
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
-		input = new int[N];
+		input = new int[N];	
 		select = new boolean[N];
 		ans = new int[M];
 		
@@ -44,13 +39,12 @@ public class bj_15663_n과m_9 {
 		}
 		
 		Arrays.sort(input);
-		//perm(0,-1);
-		perm2(0);
+		perm(0);
 		bw.flush();
 		
 	} // main end
-	
-	static void perm(int cnt, int past) throws IOException {
+	static int level = 0;
+	static void perm(int cnt) throws IOException {
 		
 		if(cnt==M) {
 			for(int i=0;i<M;i++) {
@@ -60,44 +54,20 @@ public class bj_15663_n과m_9 {
 			return;
 		}
 		
+		int past = -1;
 		for(int i=0;i<N;i++) {
 			
-			if(select[i]) continue;
-			pastNum = input[i];
-			if(pastNum == past) continue;
+			if(select[i] ||
+					past==input[i]) continue;
 			
+			past = input[i];
 			ans[cnt] = input[i];
 			select[i] = true;
-			perm(cnt+1, pastNum);
+			perm(cnt+1);
 			select[i] = false;
 			
 		}
 		
 		
-	}
-	static void perm2(int cnt) throws IOException {
-			
-			if(cnt==M) {
-				for(int i=0;i<M;i++) {
-					bw.write(ans[i] + " ");
-				}
-				bw.newLine();
-				return;
-			}
-			
-			for(int i=0;i<N;i++) {
-				
-				if(select[i]) continue;
-				if(pastNum == input[i]) continue;
-				pastNum = input[i];
-				ans[cnt] = input[i];
-				select[i] = true;
-				perm2(cnt+1);
-				select[i] = false;
-				
-			}
-			
-			
-		}
-	
+	} // perm end
 }
