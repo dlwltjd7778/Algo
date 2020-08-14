@@ -8,7 +8,6 @@ public class bj_7562_나이트의이동 {
 
 	
 	static int TC, I;	// 테스트 케이스 수, 체스판 크기
-	static int[][] map;		// 체스판
 	static Queue<Point> queue;
 	
 	static int[] di = {-2,-1,1,2,-2,2,-1,1};
@@ -20,6 +19,7 @@ public class bj_7562_나이트의이동 {
 		
 		Scanner sc = new Scanner(System.in);
 		TC = sc.nextInt();
+		
 		for(int tc=1;tc<=TC;tc++) {
 			
 			I = sc.nextInt();
@@ -28,9 +28,6 @@ public class bj_7562_나이트의이동 {
 			ei = sc.nextInt();
 			ej = sc.nextInt();
 			count = 0;
-			map = new int[I][I];
-			map[si][sj] = 1;
-			map[ei][ej] = 1;
 			
 			////////input end
 			
@@ -57,7 +54,7 @@ public class bj_7562_나이트의이동 {
 					
 					if(ni>=0 && nj>=0 && ni<I && nj<I) {
 						if(ni==ei && nj==ej) {
-							System.out.println(queue.peek().count);
+							System.out.println(p.count+1);
 							return;
 						}
 						queue.add(new Point(ni, nj,p.count+1));
