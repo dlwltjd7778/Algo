@@ -36,7 +36,6 @@ public class bj_15686_치킨배달 {
 
 		comb(0, 0);
 		System.out.println(min);
-
 	}
 
 
