@@ -5,7 +5,7 @@
 각 Code의 issue에는 `문제 링크`와 `풀이 과정`을 기록하고 있습니다.
 
 ### 💻Language
-'Java'
+`Java`
 
 ### 📋List
 - [백준](https://www.acmicpc.net/)
@@ -13,4 +13,4 @@
 - [SWEA](https://swexpertacademy.com/main/main.do)
 
 ## 🖋Author
-Lee Ji Seong - [Anna](https://gist.github.com/dlwltjd7778)
+Lee Ji Seong - [Anna's Github](https://gist.github.com/dlwltjd7778)
