@@ -52,12 +52,7 @@ public class bj_1987_알파벳 {
 			}
 		}
 		visit[board[si][sj] - 'A'] = false;
-		
-		
-		
-		
 	}
-	
 	
 	static class Point{
 		int i,j,cnt;
