@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class bj_2206_벽부시고이동 {
+public class bj_2206_벽부시고이동_dfs {
 
 	// Q에다가 0,0 을 넣고, 꺼내면서 사방탐색
 	// 만약 탐색한 ni,nj 가 0이면 칸 개수를 더해준다..
@@ -47,47 +47,50 @@ public class bj_2206_벽부시고이동 {
 			}
 		} // end input
 		
-		bfs(0,0);
+		visit[0][0] = true;
+		dfs(new Point(0, 0, false, 1));
+		
 		
 		System.out.println(min[N-1][M-1]==Integer.MAX_VALUE?-1:min[N-1][M-1]);
 		
 	}
 	
-	static void bfs(int i, int j) {
+	static void dfs(Point p) {
+		System.out.println(p.i +  " " + p.j);
 		
-		queue.add(new Point(i, j, false, 1));
-		visit[i][j] = true;
-		
-		while(!queue.isEmpty()) {
-			
-			Point p = queue.poll();
-			
-			for(int d=0;d<4;d++) {
-				int ni = p.i + di[d];
-				int nj = p.j + dj[d];
-				
-				if(ni>=0 && nj>=0 && ni<N && nj<M && !visit[ni][nj]) {
+
+		if(p.i==N-1 && p.j==M-1) {
+			if(min[N-1][M-1] > p.cnt ) min[N-1][M-1] = p.cnt;
+			return;
+		}
+
+		for (int d = 0; d < 4; d++) {
+			int ni = p.i + di[d];
+			int nj = p.j + dj[d];
+
+			if (ni >= 0 && nj >= 0 && ni < N && nj < M && !visit[ni][nj]) {
+
+				if (map[ni][nj] == 0) { // 움직이려는 칸이 0일때
 					
-					if(map[ni][nj]==0) {	// 움직이려는 칸이 0일때
-						if(min[ni][nj]>p.cnt+1) {	// 그 칸이 최소라면
-							queue.add(new Point(ni, nj, p.isDestroy, p.cnt + 1));
-							min[ni][nj] = p.cnt+1;	// min 값 갱신
-						}
-					} else {	// 움직이려는 칸이 1일때(벽일때)
-						
-						if(!p.isDestroy && min[ni][nj]>p.cnt+1) {	
-							// 현재까지 왔을 때 벽을 안부셨고, 그 칸이 최소인경우..
-							queue.add(new Point(ni, nj, true, p.cnt+1));	// 벽은 부순 처리해줌
-							min[ni][nj] = p.cnt+1;
-						}
+					if (min[ni][nj] > p.cnt + 1) { // 그 칸이 최소라면
+						min[ni][nj] = p.cnt + 1; // min 값 갱신
+						visit[ni][nj] = true;
+						dfs(new Point(ni, nj, p.isDestroy, p.cnt + 1));
+						visit[ni][nj] = false;
+					}
+				} else { // 움직이려는 칸이 1일때(벽일때)
+
+					if (!p.isDestroy && min[ni][nj] > p.cnt + 1) {
+						// 현재까지 왔을 때 벽을 안부셨고, 그 칸이 최소인경우..
+						min[ni][nj] = p.cnt + 1;
+						visit[ni][nj] = true;
+						dfs(new Point(ni, nj, true, p.cnt + 1)); // 벽은 부순 처리해줌
+						visit[ni][nj] = false;
 					}
 				}
 			}
-			
 		}
-		
-		
-		
+
 	}
 	
 	static class Point {
