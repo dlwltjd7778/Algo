@@ -28,12 +28,13 @@ public class swea_6808_규영이인영이카드게임 {
 		
 		for(int tc=1;tc<=TC;tc++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			gVic = 0; iVic = 0;
+			
 			for(int i=0;i<9;i++) {
 				gyu[i] = Integer.parseInt(st.nextToken());	// 규영이 카드 저장
 			}
 			
-			saveInYoungCard(); // 인영이 카드 저장하기
+			gVic = 0; iVic = 0;	 // TC 초기화
+			saveInYoungCard();   // 인영이 카드 저장하기
 			perm(0);
 			
 			System.out.println("#" + tc + " " + gVic + " " + iVic);
@@ -52,11 +53,9 @@ public class swea_6808_규영이인영이카드게임 {
 				if(gyu[i] - nowIn[i] > 0) {
 					gSum += gyu[i] + nowIn[i];
 				} 
-				
 				if(gyu[i] - nowIn[i] < 0) {
 					iSum += gyu[i] + nowIn[i];
 				} 
-				
 			}
 
 			if(gSum > iSum) gVic++;
