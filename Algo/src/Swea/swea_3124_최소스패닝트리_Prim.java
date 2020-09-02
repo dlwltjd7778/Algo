@@ -57,7 +57,7 @@ public class swea_3124_최소스패닝트리_Prim {
 				
 				result += now.weight;
 
-				for (Edge e : list[now.end]) { // 현재 경유지에서 나가는(출발하는) 간선을 다 꺼내보자..!
+				for (Edge e : list[now.end]) { // 현재 경유지에서 나가는(출발하는) 간선을 다 꺼내기..
 					if (!visit[e.end]) {
 						// 나와 연결된 정점들을 돌면서 방문 안했으면.. 추가해줌
 						pq.add(e);
