@@ -17,15 +17,17 @@ public class pg_greedy_체육복 {
         	clothes[lost[i]]--;
         }
         for(int i=0;i<lost.length;i++) {
-        	if(lost[i]-1>=0 && clothes[lost[i]-1]==2) {
-        		clothes[lost[i]-1]--;
-        		continue;
+        	if(clothes[lost[i]]==0) {
+        		if(lost[i]-1>=0 && clothes[lost[i]-1]==2) {
+        			clothes[lost[i]-1]--;
+        			continue;
+        		}
+        		if(lost[i]+1<n+1 && clothes[lost[i]+1]==2) {
+        			clothes[lost[i]+1]--;
+        			continue;
+        		}
+        		answer--;
         	}
-        	if(lost[i]+1<n+1 && clothes[lost[i]+1]==2) {
-        		clothes[lost[i]+1]--;
-        		continue;
-        	}
-        	answer--;
         }
         return answer;
     }
