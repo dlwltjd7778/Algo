@@ -61,7 +61,7 @@ public class bj_2636_치즈 {
 			int nj = j + dj[d];
 			
 			if(ni>=0 && nj>=0 && ni<H && nj<W) {
-				if(cheese[ni][nj]==1 && !visit[ni][nj]) {
+				if(cheese[ni][nj]==1 && !visit[ni][nj] ) {
 					queue.add(new Point(ni, nj));
 					visit[ni][nj] = true;
 					return false;
