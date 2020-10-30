@@ -47,8 +47,6 @@ public class bj_3190_뱀 {
 			int ni = si + di[sd];
 			int nj = sj + dj[sd];
 			
-			Point p = new Point(ni, nj);
-			
 			if(ni<0 || nj<0 || ni>N-1 || nj>N-1) break;	// 범위넘으면 게임종료
 			
 			Iterator<Point> iterator = snake.iterator();

@@ -32,44 +32,43 @@ public class bj_2636_치즈 {
 				cheese[i][j] = sc.nextInt();
 				if(cheese[i][j]==1) {
 					cheeseCnt++;
-					chkDirection(i, j);
-				}
+				} 
 			}
 		}
 		
-		
-		int tmp = cheeseCnt;
 		while(!queue.isEmpty()) {
 			
-			int size = queue.size();
-			for(int s=0;s<size;s++) {
-				
-				Point p = queue.poll();
-				cheese[p.i][p.j] = 0;			// 치즈가 썩어버렸다..
-				chkDirection(p.i, p.j);			// 주위에 0있나 확인
-			}
-			cheeseCnt = tmp;
-			tmp -= size;
-			time++;
+			
+			
+			
 			
 		}
-		System.out.println(time + " " + cheeseCnt);
+		
 	}
-	static boolean chkDirection(int i, int j) { // false면 주위에 하나라도 0이다, true면 전부 1이다
-		for(int d=0;d<4;d++) {
-			int ni = i + di[d];
-			int nj = j + dj[d];
+	
+	static int chkMelt() {
+		int melt = 0;		// 녹을 치즈 개수
+		
+		while(!queue.isEmpty()) {
 			
-			if(ni>=0 && nj>=0 && ni<H && nj<W) {
-				if(cheese[ni][nj]==1 && !visit[ni][nj] ) {
-					queue.add(new Point(ni, nj));
-					visit[ni][nj] = true;
-					return false;
+			Point p = queue.poll();
+			
+			for(int d=0;d<4;d++) {
+				int ni = p.i + di[d];
+				int nj = p.j + dj[d];
+				
+				if(ni>=0 && nj>=0 && ni<H && nj<W ) {
+					
 				}
 			}
+			
+			
+			
 		}
-		return true;
+		
+		
 	}
+	
 	
 	static class Point {
 		int i, j;
