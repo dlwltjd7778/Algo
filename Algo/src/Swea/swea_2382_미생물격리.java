@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class swea_미생물격리 {
+public class swea_2382_미생물격리 {
 
 	static int TC, N, M, K;	// 테스트케이스, 배열크기, 시간, 군집수
 	static int[] di = {0,-1,1,0,0};
