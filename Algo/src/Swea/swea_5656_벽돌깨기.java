@@ -6,6 +6,9 @@ public class swea_5656_벽돌깨기 {
 
 	static int N,W,H,count,tmpCnt,min;
 	static int map[][], tmpMap[][];
+	static int[] select;
+	static boolean[] visit;
+	
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
@@ -33,16 +36,11 @@ public class swea_5656_벽돌깨기 {
 			perm(0);
 			
 			System.out.println("#" + tc+ " " + min);
-			
-			
-			
 		} // end tc
 	} // end main
 	
-	// 일단 공을 던질 위치인 열의 조합을 뽑는다.
 	
-	static int[] select;
-	static boolean[] visit;
+	// 일단 공을 던질 위치인 열의 조합을 뽑는다.
 	private static void perm(int cnt) {
 		if(cnt==N) {
 			tmpMap = new int[H][W];
@@ -57,7 +55,6 @@ public class swea_5656_벽돌깨기 {
 				sort();	// 아래로 정렬
 			}
 			int tmpCnt = count();
-			//System.out.println(tmpCnt);
 			min = Math.min(min,tmpCnt);
 			return;
 		}
@@ -73,14 +70,14 @@ public class swea_5656_벽돌깨기 {
 		int result=0;
 		for(int i=0;i<H;i++) {
 			for(int j=0;j<W;j++) {
-				//System.out.print(tmpMap[i][j] + " ");
 				if(tmpMap[i][j]>0)
 					result++;
 			}
-			//System.out.println();
 		}
 		return result;
 	}
+	
+	// 깨진 벽돌 아래로 정렬하기
 	private static void sort() {
 		for(int j=0;j<W;j++) {
 			int[] tmpArr = new int[H];
@@ -96,12 +93,15 @@ public class swea_5656_벽돌깨기 {
 			}
 		}
 	}
+	// 배열 범위 확인
 	static boolean chkArr(int i,int j){
 		if(i>=0 && j>=0 && i<H && j<W) {
 			return true;
 		}
 		return false;
 	}
+	
+	// 벽돌 깨기!
 	private static void play(int nowi, int nowj) {
 		int cnt = tmpMap[nowi][nowj];
 		tmpMap[nowi][nowj] = 0;
