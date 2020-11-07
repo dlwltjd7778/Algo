@@ -107,7 +107,7 @@ public class swea_디저트카페 {
 	
 	static boolean[] select;
 	static Integer[] answer;
-	private static void perm(int cnt) {
+	private static void perm(int cnt) { 
 		
 		if(cnt==2) {
 			if(answer[0]+answer[1]<=N-1) {	// 가능한 경우들 넣기
