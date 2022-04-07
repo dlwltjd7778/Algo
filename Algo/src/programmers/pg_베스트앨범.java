@@ -1,13 +1,7 @@
-package programmers;
 
 import java.util.*;
 
-/**
- * 해시 - 베스트앨범
- * https://programmers.co.kr/learn/courses/30/lessons/42579
- */
-
-public class pg_베스트앨범 {
+public class Solution {
 
 
     public static void main(String[] args) {
